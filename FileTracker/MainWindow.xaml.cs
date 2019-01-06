@@ -84,10 +84,11 @@ namespace FileTracker
 
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
             {
-                string[] droppedFile = (string[])e.Data.GetData(DataFormats.FileDrop);
-
-                ActiveProject.AddFile(new File(@droppedFile[0]));
-                OpenFileIfRequested(@droppedFile[0]);
+                foreach(string fileName in (string[])e.Data.GetData(DataFormats.FileDrop))
+                {
+                    ActiveProject.AddFile(new File(@fileName));
+                    OpenFileIfRequested(@fileName);
+                }
                 
                 ShowFileCanvas();
             }
