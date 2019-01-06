@@ -10,7 +10,7 @@
     <Grid Name="Screen" Height="450" Width="300" Background="#202020" DragLeave="ShowFileCanvas" DragEnter="ShowDropCanvas" Drop="AddNewFileToProject" AllowDrop="True">
         <Canvas Name="AddFileCanvas" Visibility="Visible">
             <ComboBox SelectedIndex="0" ItemsSource="{Binding ProjectList}" SelectionChanged="ChangeProject" x:Name="ProjectListDropdown" DisplayMemberPath="ProjectName" SelectedValuePath="ProjectName" Width="271" Canvas.Left="10" Canvas.Top="10" />
-            <ListView KeyDown="DeleteSelectedFile" SelectionMode="Single" DisplayMemberPath="Name" SelectedValuePath="Name" HorizontalAlignment="Right" VerticalAlignment="Top" Height="216" Width="271" Name="files" Canvas.Left="10" Canvas.Top="64" ItemsSource="{Binding ActiveProject.Files}" />
+            <ListView KeyDown="DeleteSelectedFile" SelectionMode="Multiple" DisplayMemberPath="Name" SelectedValuePath="Name" HorizontalAlignment="Right" VerticalAlignment="Top" Height="216" Width="271" Name="files" Canvas.Left="10" Canvas.Top="64" ItemsSource="{Binding ActiveProject.Files}" />
             <Button Background="#ffffff" x:Name="btnArchiveProject" Content="Archive Project" HorizontalAlignment="Left" VerticalAlignment="Top" Width="271" Click="ArchiveProject" Canvas.Left="10" Canvas.Top="365"/>
             <Button Background="#FF0CF00C" x:Name="btnExport" Content="Export" HorizontalAlignment="Left" VerticalAlignment="Top" Width="271" Click="ExportFileList" Canvas.Left="10" Canvas.Top="286"/>
             <Label Foreground="#ffffff" MouseDown="ShowProjectCanvas" x:Name="ReturnToProjectCanvas" Content="New Project" Canvas.Left="10" Canvas.Top="33"/>

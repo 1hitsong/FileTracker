@@ -155,7 +155,13 @@ namespace FileTracker
 
         private void DeleteSelectedFile(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete || e.Key == Key.Back) ActiveProject.RemoveFile(files.SelectedIndex);
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                for (int i = files.SelectedItems.Count - 1; i >= 0; i--)
+                {
+                    ActiveProject.RemoveFile(files.Items.IndexOf(files.SelectedItems[i]));
+                }
+            }
         }
 
         private void ArchiveProject(object sender, RoutedEventArgs e)
